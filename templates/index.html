@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<title>文件浏览</title>
+	<style>
+<!--	按钮的样式-->
+	.button {
+		font: bold 11px Arial;
+		text-decoration: none;
+		background-color: #EEEEEE;
+		color: #333333;
+		padding: 2px 6px 2px 6px;
+		border-top: 1px solid #CCCCCC;
+		border-right: 1px solid #333333;
+		border-bottom: 1px solid #333333;
+		border-left: 1px solid #CCCCCC;
+	}
+	</style>
+</head>
+<body>
+	{% for item in data %}
+<!--	如果是目录-->
+		{% if item[2] %}
+			<a href="{{ url_for('index', current_relative_path=item[1]) }}">{{ item[0] }}</a><br>
+		{% else %}
+			{{ item[0] }} <a href="{{ url_for('download_file', file_path=item[0]) }}" class="button">下载</a><br>
+		{% endif %}
+	{% endfor %}
+</body>
+</html>
