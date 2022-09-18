@@ -2,5 +2,4 @@
 # !/usr/bin/python
 
 
-class C:
-    ROOT_PATH = 'D:\\transport\\'
+ROOT_PATH = 'D:\\transport\\'

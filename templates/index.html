@@ -24,7 +24,7 @@
 		{% if item[2] %}
 			<a href="{{ url_for('index', current_relative_path=item[1]) }}">{{ item[0] }}</a><br>
 		{% else %}
-			{{ item[0] }} <a href="{{ url_for('download_file', file_path=item[0]) }}" class="button">下载</a><br>
+			{{ item[0] }} <a href="{{ url_for('download_file', file_path=item[1]) }}" class="button">下载</a><br>
 		{% endif %}
 	{% endfor %}
 </body>
