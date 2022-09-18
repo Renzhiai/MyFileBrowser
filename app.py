@@ -19,14 +19,14 @@ if not C.ROOT_PATH.endswith(os.sep):
 @app.route('/<current_relative_path>', methods=['GET', 'POST'])
 def index(current_relative_path=None):
     if current_relative_path:
-        current_absolute_path = os.path.join(ROOT_PATH, current_relative_path)
+        current_absolute_path = os.path.join(C.ROOT_PATH, current_relative_path)
     else:
-        current_absolute_path = ROOT_PATH
+        current_absolute_path = C.ROOT_PATH
     result = []
     for file_name in os.listdir(current_absolute_path):
         file_absolute_path = os.path.join(current_absolute_path, file_name)
         is_dir = os.path.isdir(file_absolute_path)
-        file_relative_path = file_absolute_path.replace(ROOT_PATH, '')
+        file_relative_path = file_absolute_path.replace(C.ROOT_PATH, '')
         result.append([file_name, file_relative_path, is_dir])
     return render_template('index.html', data=result)
 
