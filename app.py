@@ -18,7 +18,6 @@ if not C.ROOT_PATH.endswith(os.sep):
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/<current_relative_path>', methods=['GET', 'POST'])
 def index(current_relative_path=None):
-
     if current_relative_path:
         current_absolute_path = os.path.join(ROOT_PATH, current_relative_path)
     else:
@@ -40,4 +39,4 @@ def download_file(file_path):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5003)
+    app.run(host='0.0.0.0', port=5000)
